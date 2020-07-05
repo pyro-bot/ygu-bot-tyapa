@@ -4,6 +4,7 @@ DEBUG = bool(os.environ.get('DEBUG', False))
 TOKEN = os.environ.get('TOKEN')
 
 MODULES = (
+    'base',
     'rules',
 )
 

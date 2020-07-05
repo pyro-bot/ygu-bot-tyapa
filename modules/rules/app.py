@@ -3,21 +3,9 @@ from loguru import logger
 import aiofiles
 import discord
 from discord.ext import commands
-from pathlib import Path
+from modules.base.ext import BaseBot
 
-BASEDIR = Path(__file__).parent
-RESOURCES = BASEDIR / 'resources'
-
-
-class RulesBot(commands.Cog):
-
-    def __init__(self, bot):
-        self.bot = bot
-        super().__init__()
-
-    @commands.Cog.listener()
-    async def on_ready(self):
-        logger.info(f'Cog {self.__cog_name__} on ready')
+class RulesBot(BaseBot):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
@@ -36,5 +24,5 @@ class RulesBot(commands.Cog):
         await ctx.author.send(await self._get_rules())
     
     async def _get_rules(self):
-        async with aiofiles.open(RESOURCES / 'rules.txt', 'r', encoding='utf8') as f:
+        async with aiofiles.open(self.RESOURCES / 'rules.txt', 'r', encoding='utf8') as f:
             return await f.read()
