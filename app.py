@@ -1,15 +1,15 @@
-from operator import mod
 import settings
 from loguru import logger
 import discord
 import discord.ext.commands
+from bot import DiscordBot
 
 logger.configure(**settings.LOGGING)
 
-bot = discord.ext.commands.Bot('>', description='')
+bot = DiscordBot('>')
 
-for module_name in  settings.MODULES:
-    # module = __import__('modules.' + module_name)
+for module_name in settings.MODULES:
     bot.load_extension('modules.' + module_name)    
 
-bot.run(settings.TOKEN)
+if __name__ == "__main__":
+    bot.run(settings.TOKEN)
