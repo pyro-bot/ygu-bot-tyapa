@@ -9,7 +9,7 @@
 
 - Python >= 3.8
 - aiofiles==0.5.0
-- discord.py==1.3.3
+- discord.py==1.6.0
 - jinja2==2.11.2
 - loguru==0.5.1
 - pony==0.7.13
