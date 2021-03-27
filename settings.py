@@ -5,8 +5,8 @@ TOKEN = os.environ.get('TOKEN')
 
 MODULES = (
     'base',
-    'rules',
-    'firstcontact',
+    # 'rules',
+    # 'firstcontact',
     # 'example'
 )
 
