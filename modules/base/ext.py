@@ -11,6 +11,8 @@ class BaseBotMeta(commands.CogMeta):
     
     def __new__(cls, *args, **kwargs):
         name, bases, attrs = args
+        if attrs.get('__name__') is not None:
+            name = attrs['__name__']
         new_cls = super().__new__(cls, name, bases, attrs, **kwargs)
         module = importlib.util.find_spec(new_cls.__module__)
         

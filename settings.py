@@ -7,7 +7,8 @@ MODULES = (
     'base',
     # 'rules',
     # 'firstcontact',
-    # 'example'
+    'example',
+    'poll',
 )
 
 LOGGING = {
