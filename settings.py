@@ -1,5 +1,9 @@
 import sys
 import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+
 DEBUG = bool(os.environ.get('DEBUG', False))
 TOKEN = os.environ.get('TOKEN')
 
@@ -9,6 +13,7 @@ MODULES = (
     # 'firstcontact',
     'example',
     'poll',
+    'raiting',
 )
 
 LOGGING = {
@@ -18,6 +23,12 @@ LOGGING = {
         {"sink": "logs/error.log", 'level': 'ERROR', 'rotation': '1 week'},
     ],
     "extra": {"user": "someone"}
+}
+
+DATABASE = {
+    'provider': 'sqlite',
+    'filename': str(BASE_DIR / 'db.sqlite3'),
+    'create_db': True,
 }
 
 
